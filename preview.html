@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAGNO CENTRO JOYERO - ANGO JEWERLY SUITE</title>
+    
+    <!-- Open Graph / WhatsApp Meta Tags -->
+    <meta property="og:title" content="MAGNO CENTRO JOYERO - Joyería Fina">
+    <meta property="og:description" content="Consulta de pieza de joyería">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="https://angojewerlysuite.github.io/preview.html">
+    <meta property="og:type" content="product">
+    <meta property="og:site_name" content="MAGNO CENTRO JOYERO">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --ango-dark: #210724;
+            --ango-purple: #3C1351;
+            --ango-gold: #C9A44C;
+            --ango-gold-light: #FFD700;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--ango-dark), var(--ango-purple));
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            border: 2px solid var(--ango-gold);
+            box-shadow: 0 20px 40px rgba(201, 164, 76, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Efecto de brillo dorado */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201,164,76,0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .brand {
+            color: var(--ango-gold);
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(201,164,76,0.5);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .model {
+            color: #ccc;
+            font-size: 16px;
+            margin-top: 5px;
+            letter-spacing: 2px;
+        }
+        
+        .image-container {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 25px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid var(--ango-gold);
+            background: #000;
+            box-shadow: 0 0 20px rgba(201,164,76,0.3);
+        }
+        
+        #product-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+            background: white;
+        }
+        
+        #product-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .info {
+            position: relative;
+            z-index: 1;
+            background: rgba(0,0,0,0.5);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            margin-bottom: 20px;
+            border: 1px solid rgba(201,164,76,0.3);
+        }
+        
+        .part-number {
+            font-family: 'Courier New', monospace;
+            font-size: 28px;
+            color: var(--ango-gold);
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(201,164,76,0.3);
+        }
+        
+        .description {
+            font-size: 18px;
+            text-align: center;
+            color: #fff;
+            line-height: 1.5;
+            padding: 0 10px;
+            font-weight: 500;
+        }
+        
+        .details {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #ccc;
+        }
+        
+        .details i {
+            color: var(--ango-gold);
+            margin-right: 5px;
+        }
+        
+        .whatsapp-btn {
+            position: relative;
+            z-index: 1;
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            border-radius: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        .footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+            border-top: 1px solid rgba(201,164,76,0.3);
+            padding-top: 15px;
+        }
+        
+        .footer p {
+            margin: 5px 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--ango-gold);
+            color: var(--ango-dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .location-highlight {
+            color: var(--ango-gold);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="brand">MAGNO CENTRO JOYERO</div>
+            <div class="model">ANGO JEWERLY SUITE</div>
+        </div>
+        
+        <div class="image-container">
+            <img id="product-image" src="" alt="Joyería fina">
+        </div>
+        
+        <div class="info">
+            <div class="badge">💍 CONSULTA DE JOYERÍA</div>
+            <div class="part-number" id="part-number">Cargando...</div>
+            <div class="description" id="description">Cargando información...</div>
+        </div>
+        
+        <div class="details">
+            <span><i class="fas fa-map-marker-alt"></i> Guadalajara, Jal.</span>
+            <span><i class="fas fa-truck"></i> Envío a todo México</span>
+        </div>
+        
+        <a href="#" id="whatsapp-link" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Consultar por WhatsApp
+        </a>
+        
+        <div class="footer">
+            <p class="location-highlight">📍 Dionisio Rodríguez 14, Local 31 B</p>
+            <p>Guadalajara, Jal. C.P. 44360</p>
+            <p><i class="fab fa-whatsapp"></i> 33 1063 2307</p>
+            <p>⏰ WhatsApp 24/7</p>
+        </div>
+    </div>
+   <script>
+        // ============================================
+        // preview.html - Script unificado
+        // ============================================
+
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                num: params.get('num') || 'AN-000',
+                desc: params.get('desc') || 'Joyería fina plata 925',
+                img: params.get('img') || 'PORTADA.png',
+                cat: params.get('cat') || 'general',
+                from: params.get('from') || ''  // ← NUEVO: detecta origen
+            };
+        }
+
+        // Función para personalizar el badge si viene de promo
+        function customizeBadgeIfFromPromo(from) {
+            if (from === 'promo') {
+                // Pequeño retraso para asegurar que el DOM cargó
+                setTimeout(() => {
+                    const badge = document.querySelector('.badge');
+                    if (badge) {
+                        badge.innerHTML = '🌸 OFERTA DÍA DE LAS MADRES 🌸';
+                        badge.style.background = '#ff6b6b';
+                        badge.style.color = 'white';
+                        badge.style.animation = 'pulse 2s infinite';
+                    }
+                }, 100);
+            }
+        }
+
+        function loadProductData() {
+            const params = getUrlParams();
+            const baseUrl = 'https://angojewerlysuite.github.io';
+            const imageUrl = `${baseUrl}/assets/img/${params.img}`;
+            const decodedDesc = decodeURIComponent(params.desc);
+            
+            // Actualizar elementos
+            document.getElementById('part-number').textContent = params.num;
+            document.getElementById('description').textContent = decodedDesc;
+            document.getElementById('product-image').src = imageUrl;
+            
+            // Actualizar meta tags para WhatsApp
+            document.querySelector('meta[property="og:title"]').setAttribute('content', `MAGNO CENTRO JOYERO - ${params.num}`);
+            document.querySelector('meta[property="og:description"]').setAttribute('content', decodedDesc.substring(0, 100));
+            document.querySelector('meta[property="og:image"]').setAttribute('content', imageUrl);
+            document.querySelector('meta[property="og:url"]').setAttribute('content', window.location.href);
+            
+            // Actualizar título
+            document.title = `MAGNO CENTRO JOYERO - ${params.num}`;
+            
+            // Personalizar mensaje según origen
+            let message;
+            if (params.from === 'promo') {
+                message = encodeURIComponent(
+                    `🌸 Hola, vi la pieza *${params.num}* - *${decodedDesc}* en la PROMO ESPECIAL de Día de las Madres. Entiendo que el precio varía según el tipo de cambio del día. ¿Me puedes dar el precio actual y disponibilidad?`
+                );
+            } else {
+                message = encodeURIComponent(
+                    `✨ Hola, vi la pieza *${params.num}* - *${decodedDesc}* en el catálogo de MAGNO CENTRO JOYERO y me interesa. Quedo atento a disponibilidad y precio.`
+                );
+            }
+            
+            // Actualizar enlace de WhatsApp
+            document.getElementById('whatsapp-link').href = `https://wa.me/523310632307?text=${message}`;
+            
+            // Personalizar badge si viene de promo
+            customizeBadgeIfFromPromo(params.from);
+        }
+
+        // Agregar animación para el badge
+        function addPulseAnimation() {
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes pulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.05); }
+                    100% { transform: scale(1); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Inicializar
+        window.onload = function() {
+            addPulseAnimation();
+            loadProductData();
+        };
+      </script>
+        <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts para Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+</body>
+</html>
